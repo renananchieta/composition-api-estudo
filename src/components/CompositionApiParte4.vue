@@ -1,5 +1,6 @@
 <template>
     <div>
+        <CabecalhoPagina />
         <h1>Parte 6</h1>
         <h2>Propriedades, Eventos e Contexto do Component em composition api</h2>
         <div>
@@ -16,22 +17,26 @@
 </template>
 
 <script>
+import CabecalhoPagina from './CabecalhoPagina.vue';
+
 export default{
+    components: { CabecalhoPagina },
+
+
     props: {
-        variant:{
+        variant: {
             type: String,
-            default: 'Success',
+            default: "Success",
         },
     },
     setup(props, { emit }) {
         const sendData = () => {
-            emit('update', true)
-        }
-
+            emit("update", true);
+        };
         return {
             sendData,
-        }
-    }
+        };
+    },
 }
 </script>
 

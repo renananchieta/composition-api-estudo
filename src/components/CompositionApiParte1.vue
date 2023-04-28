@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>Vue js - Composition API</h1>
-    <hr>
+    <CabecalhoPagina />
     <h1>Parte 1</h1>
     <h2>Utilizando o Reactive do vue.js através de methods em composition api</h2>
     <div>
@@ -51,9 +50,13 @@
 </template>
 
 <script>
+import CabecalhoPagina from './CabecalhoPagina.vue'
 import { ref, reactive } from 'vue'
 
 export default {
+  components:{
+    CabecalhoPagina
+    },
   setup() {
     const usuario1 = reactive({
       nome: 'Renan',

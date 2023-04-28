@@ -1,6 +1,6 @@
 <template>
     <div>
-        <hr>
+        <CabecalhoPagina />
         <h1>Parte 3</h1>
         <h2>Utilizando computed em composition api</h2>
         <div>
@@ -31,35 +31,33 @@
 
 <script>
 import {ref, computed, watch} from 'vue'
+import CabecalhoPagina from './CabecalhoPagina.vue'
 
 export default {
     setup() {
         const usuario1 = ref({
-            perfil: 'Administrador',
-            setor: 'Desenvolvimento'
-        })
-
+            perfil: "Administrador",
+            setor: "Desenvolvimento"
+        });
         const usuario2 = ref({
-            perfil: 'Usuario Comum',
-            setor: 'Desenvolvimento'
-        })
-
+            perfil: "Usuario Comum",
+            setor: "Desenvolvimento"
+        });
         const unirPefilESetor = computed(() => {
-            return `Perfil: ${usuario1.value.perfil} e Setor: ${usuario1.value.setor}`
-        })
-
-        watch (usuario1, () => {
-            console.log('observa algum objeto, campo ou elemento.');
+            return `Perfil: ${usuario1.value.perfil} e Setor: ${usuario1.value.setor}`;
+        });
+        watch(usuario1, () => {
+            console.log(usuario1);
         }, {
             deep: true
-        })
-
-        return{
+        });
+        return {
             usuario1,
             usuario2,
             unirPefilESetor,
-        }
-    }
+        };
+    },
+    components: { CabecalhoPagina }
 }
 </script>
 

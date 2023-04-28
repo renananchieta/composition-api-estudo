@@ -1,62 +1,59 @@
 <template>
+  <v-app>
+    <div >
+      <v-toolbar dark prominent>
+        <v-app-bar>
+          <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-  <CompositionApiParte1 />
-  <CompositionApiParte2/>
-  <CompositionApiParte3 v-if="mostrarComponente3"/>
-  <button @click="mostrarComponente3 = !mostrarComponente3" type="button">Exibir Componente e visualizar o console.log()</button> <br>
-  <hr><hr>
-  <CompositionApiParte4
-    @update="getUpdate"
-  >
-    Save
-    <template #Exemplo1>Exemplo 1</template>
-  </CompositionApiParte4>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <TelaPrincipal msg="Welcome to Your Vue.js App" />
+          <v-toolbar-title>Operações Testes</v-toolbar-title>
+
+          <v-btn variant="text" icon="mdi-magnify"></v-btn>
+
+          <v-btn variant="text" icon="mdi-filter"></v-btn>
+
+          <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
+        </v-app-bar>
+
+        <v-navigation-drawer
+        v-model="drawer"
+        :rail="rail"
+        permanent
+        @click="rail = false"
+      >
+        <v-list-item
+          prepend-avatar="https://lh3.googleusercontent.com/ogw/AOLn63EBV1hKQrP0zQ1yclYdb8603HE1ceg85-0YlA_EH5Q=s32-c-mo"
+          title="Renan Anchieta"
+          nav
+        >
+          
+        </v-list-item>
+
+        <v-divider></v-divider>
+
+      </v-navigation-drawer>
+
+      </v-toolbar>
+    </div>
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import TelaPrincipal from './components/TelaPrincipal.vue'
-import CompositionApiParte1 from './components/CompositionApiParte1.vue'
-import CompositionApiParte2 from './components/CompositionApiParte2.vue'
-import CompositionApiParte3 from './components/CompositionApiParte3.vue'
-import CompositionApiParte4 from './components/CompositionApiParte4.vue'
-import {ref} from 'vue'
 
 export default {
-
-
   name: 'App',
-  components: {
-    TelaPrincipal,
-    CompositionApiParte1,
-    CompositionApiParte2,
-    CompositionApiParte3,
-    CompositionApiParte4,
-  },
 
-  setup() {
-    const mostrarComponente3 = ref(false)
+  data: () => ({
+    drawer: true,
+    rail: false,
+  }),
 
-    const getUpdate = (data) => {
-      console.log('getUpdate', data);
-    }
-
-    return {
-      mostrarComponente3,
-      getUpdate,
-    }
-  }
+  watch: {
+      group () {
+        this.drawer = false
+      },
+    },
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
