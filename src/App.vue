@@ -25,11 +25,26 @@
           title="Renan Anchieta"
           nav
         >
-          
         </v-list-item>
 
         <v-divider></v-divider>
 
+        <v-list-item>
+          <a href="/parte1">Pagina 1</a>
+        </v-list-item>
+        <v-list-item>
+          <a href="/parte2">Pagina 2</a>
+        </v-list-item>
+        <v-list-item>
+          <a href="/parte3">Pagina 3</a>
+        </v-list-item>
+        <v-list-item>
+          <a href="/parte4">Pagina 4</a>
+        </v-list-item>
+        <v-list-item>
+          <a href="/CounterComponent">Counter</a>
+        </v-list-item>
+        
       </v-navigation-drawer>
 
       </v-toolbar>
@@ -48,6 +63,12 @@ export default {
   data: () => ({
     drawer: true,
     rail: false,
+    ListaMenu: [
+      { 
+        text: 'Pagina 1',
+        href: '/src/components/CompositionApiParte1.vue',
+      }
+    ],
   }),
 
   watch: {

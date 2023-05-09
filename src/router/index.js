@@ -34,7 +34,11 @@ const routes = [
     path: '/parte4',
     name: 'Parte 4',
     component: () => import('../views/parte4View.vue')
-  }
+  },{
+    path: '/CounterComponent',
+    name: 'CounterComponent',
+    component: () => import('../views/counterView.vue')
+  },
 ]
 
 const router = createRouter({
